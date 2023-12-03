@@ -2,7 +2,7 @@ import { useRef } from "react";
 import Input from "./Input";
 import Modal from "./Modal";
 
-export default function NewProject({ onAdd }) {
+export default function NewProject({ onAdd, onCancel }) {
   const modal = useRef();
   const projectTitle = useRef();
   const projectDescription = useRef();
@@ -32,15 +32,22 @@ export default function NewProject({ onAdd }) {
   return (
     <>
       <Modal ref={modal} buttonCaption="Okay">
-        <h2>Invalid input</h2>
-        <p>Check your input nigga</p>
-        <p>We only accept valid input nigga bitch!</p>
+        <h2 className="text-xl font-bold text-stone-500 my-4">Invalid input</h2>
+        <p className="text-stone-700 font-semibold mb-stone">
+          Check your input nigga
+        </p>
+        <p className="text-stone-700 font-semibold mb-stone">
+          We only accept valid input nigga bitch!
+        </p>
       </Modal>
 
       <div className="w-[35rem] mt-16 ">
         <menu className="flex items-center justify-end gap-4 my-4">
           <li>
-            <button className="text-stone-800 hover:text-stone-950">
+            <button
+              onClick={onCancel}
+              className="text-stone-800 hover:text-stone-950"
+            >
               Cancel
             </button>
           </li>
